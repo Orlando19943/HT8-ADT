@@ -1,11 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Scanner;
+
 /**
  * 
  */
@@ -14,7 +11,7 @@ import java.util.PriorityQueue;
  * @author Orlando
  *
  */
-public class Main {
+public class MainJavaCollectionFramework {
 
 	/**
 	 * @param args
@@ -22,7 +19,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner teclado = new Scanner (System.in);
-		VectorHeap<Paciente> heap = new VectorHeap<Paciente>();
+		PriorityQueue <Paciente> pQueue = new PriorityQueue<Paciente> ();;
 		System.out.println("Introduzca el nombre del documento (pacientes.txt)");
 		String documento;
 		String nombre;
@@ -69,7 +66,7 @@ public class Main {
 	    	  //System.out.println (nombre + ", " + descripcion + ", " + codigo);
 
 	    	  Paciente paciente = new Paciente(nombre, descripcion, codigo);
-	    	  heap.add(paciente);
+	    	  pQueue.add(paciente);
 	      }
 	    	  
 	        
@@ -88,20 +85,19 @@ public class Main {
 					System.out.println("3.Salir");
 					n = teclado.nextInt();
 					if (n == 1) {
-						if (!heap.isEmpty()) {
+						if (!pQueue.isEmpty()) {
 							System.out.println("Listado de pacientes");
-							for (int i = 0; i < heap.size(); i++) {							
-						    	System.out.println(heap.get(i));
-						    }
-							
+							for (Paciente listaP:pQueue) {
+								System.out.println(listaP.toString());
+							}
 							}else {
 								System.out.println("Lista de pacientes vacia");
 							}
 						
 					}
 					if (n == 2) {
-						if (!heap.isEmpty()) {
-						System.out.println("Atender a: " + heap.remove());
+						if (!pQueue.isEmpty()) {
+						System.out.println("Atender a: " + pQueue.remove());
 						}else {
 							System.out.println("Lista de pacientes vacia");
 						}
@@ -119,4 +115,5 @@ public class Main {
 	}
 
 	}
+
 }
