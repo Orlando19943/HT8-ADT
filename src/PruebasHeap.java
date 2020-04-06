@@ -15,7 +15,7 @@ class PruebasHeap {
 	Paciente paciente2 = new Paciente("Maria Ramirez", "apendicitis", "A");
 	
 	@Test
-	void addTest() {
+	void heapTest() {
 		VectorHeap<Paciente> heap = new VectorHeap<Paciente>();
 		heap.add(paciente1);
 		heap.add(paciente2);
